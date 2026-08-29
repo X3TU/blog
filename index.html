@@ -1,160 +1,313 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kişisel Blog</title>
-    <style>
-        /* Sitenin Genel Tasarımı (CSS) - Modern, Keskin ve Hissedilebilir Tasarım */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f9f9f9; /* Çok hafif gri, beyaz kartlar öne çıksın diye */
-            color: #111111;
-            margin: 0;
-            padding: 30px 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Ana Sayfa Yazı Listesi Tasarımı */
-        .post-card {
-            background-color: #ffffff;
-            border: 2px solid #000000; /* Kalın ve modern çerçeve */
-            padding: 25px;
-            border-radius: 0px; /* Tamamen keskin (pointy) köşeler */
-            margin-bottom: 25px;
-            cursor: pointer;
-            /* Modern 3 Boyutlu Tıklama Hissi */
-            box-shadow: 6px 6px 0px #000000;
-            transition: all 0.1s ease-out; /* Hızlı ve net animasyon */
-        }
-        /* Tıklama Anı (Ekrana dokunulduğunda kutu aşağı çöker) */
-        .post-card:active {
-            box-shadow: 0px 0px 0px #000000;
-            transform: translate(6px, 6px);
-        }
-        
-        .post-card-title {
-            color: #000000;
-            font-size: 22px;
-            font-weight: 800; /* Kalın ve dikkat çekici başlık */
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-        .post-card-date {
-            font-size: 13px;
-            color: #666666;
-            font-weight: 600;
-            text-transform: uppercase; /* Modern görünüm için büyük harf tarih */
-            letter-spacing: 1px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notlar.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF0EA;
+    --ink: #1B1D22;
+    --ink-soft: #6B6F63;
+    --accent: #8A2E3B;
+    --wash: #F4E7E5;
+    --border: #DBDCD1;
+    --serif: 'IBM Plex Serif', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  }
 
-        /* Yazı Okuma Ekranı Tasarımı */
-        #article-view {
-            display: none;
-        }
-        .back-btn {
-            background-color: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
-            padding: 10px 20px;
-            border-radius: 0px; /* Keskin köşeler */
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            box-shadow: 4px 4px 0px #000000;
-            transition: all 0.1s ease-out;
-            font-family: inherit;
-        }
-        .back-btn:active {
-            box-shadow: 0px 0px 0px #000000;
-            transform: translate(4px, 4px);
-        }
-        
-        .article {
-            display: none;
-        }
-        .article h2 {
-            color: #000000;
-            font-size: 28px;
-            margin-bottom: 20px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        .article p {
-            font-size: 17px;
-            margin-bottom: 20px;
-            color: #222222;
-        }
-    </style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px 120px;
+  }
+
+  .site-header {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 14px;
+  }
+
+  .site-title {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .site-tagline {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: 10px 0 0;
+  }
+
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-item {
+    padding: 28px 16px;
+    margin: 0 -16px;
+    border-bottom: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .post-item:last-child { border-bottom: none; }
+
+  .post-item:hover,
+  .post-item:focus-visible {
+    background: var(--wash);
+    outline: none;
+  }
+
+  .post-item:focus-visible {
+    box-shadow: inset 0 0 0 1.5px var(--accent);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .post-index {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .post-date {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .post-title {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0 0 8px;
+  }
+
+  .post-excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4c4f46;
+    margin: 0;
+  }
+
+  #article-view { display: none; }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 36px 4px 0 0;
+    margin-bottom: 44px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover,
+  .back-link:focus-visible {
+    color: var(--accent);
+  }
+
+  .back-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  .article {
+    display: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .article.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .article-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 16px;
+  }
+
+  .article h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 28px;
+  }
+
+  .article p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #2a2c27;
+    max-width: 58ch;
+    margin: 0 0 22px;
+  }
+
+  @media (max-width: 480px) {
+    .site-header { padding: 52px 0 32px; }
+    .site-title { font-size: 27px; }
+    .post-title { font-size: 19px; }
+    .article h2 { font-size: 25px; }
+    .article p { font-size: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- ANA SAYFA: YAZI LİSTESİ -->
-    <div id="home-view">
-        
-        <!-- 1. YAZI KARTI -->
-        <div class="post-card" onclick="openArticle('yazi1')">
-            <div class="post-card-title">İlk Blog Yazım: Neden Buradayım?</div>
-            <div class="post-card-date">Bugün</div>
+<div class="page">
+
+  <div id="home-view">
+    <header class="site-header">
+      <p class="eyebrow">kişisel günlük</p>
+      <h1 class="site-title">Notlar.</h1>
+      <p class="site-tagline">aklımdan geçenler, ara sıra buraya düşer.</p>
+    </header>
+
+    <ol class="post-list">
+      <li class="post-item" tabindex="0" role="button" aria-label="Neden Burada Yazıyorum yazısını aç" onclick="openArticle('yazi1')" onkeydown="handleKey(event, 'yazi1')">
+        <div class="post-meta">
+          <span class="post-index">003</span>
+          <span class="post-date">Bugün</span>
         </div>
+        <h2 class="post-title">Neden Burada Yazıyorum</h2>
+        <p class="post-excerpt">Kimseye bir şey ispatlama derdim yok. Sadece aklımda kalanları bir yere bırakmak istedim.</p>
+      </li>
 
-        <!-- 2. YAZI KARTI -->
-        <div class="post-card" onclick="openArticle('yazi2')">
-            <div class="post-card-title">Geceleri Aklıma Gelen Garip Fikirler</div>
-            <div class="post-card-date">Dün</div>
+      <li class="post-item" tabindex="0" role="button" aria-label="Gece Yarısı Notları yazısını aç" onclick="openArticle('yazi2')" onkeydown="handleKey(event, 'yazi2')">
+        <div class="post-meta">
+          <span class="post-index">002</span>
+          <span class="post-date">3 gün önce</span>
         </div>
+        <h2 class="post-title">Gece Yarısı Notları</h2>
+        <p class="post-excerpt">En mantıklı fikirler hep uyumadan hemen önce geliyor, sabah olunca da hepsi kayboluyor.</p>
+      </li>
 
-    </div>
-
-    <!-- YAZI OKUMA EKRANI -->
-    <div id="article-view">
-        <button class="back-btn" onclick="goHome()">← LİSTEYE DÖN</button>
-        
-        <!-- 1. YAZININ İÇERİĞİ -->
-        <div id="yazi1" class="article">
-            <h2>İlk Blog Yazım: Neden Buradayım?</h2>
-            <p>Selam! Burası benim kişisel alanım. Aklıma gelenleri, hayata dair düşüncelerimi burada çok sade bir şekilde paylaşacağım.</p>
-            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da modern ve sade tuttum ki sadece yazılara odaklanılsın.</p>
+      <li class="post-item" tabindex="0" role="button" aria-label="Basit Tutmak yazısını aç" onclick="openArticle('yazi3')" onkeydown="handleKey(event, 'yazi3')">
+        <div class="post-meta">
+          <span class="post-index">001</span>
+          <span class="post-date">1 hafta önce</span>
         </div>
+        <h2 class="post-title">Basit Tutmak</h2>
+        <p class="post-excerpt">Bu siteyi de tam olarak bu yüzden böyle tasarladım: az öğe, çok boşluk, sade bir okuma deneyimi.</p>
+      </li>
+    </ol>
+  </div>
 
-        <!-- 2. YAZININ İÇERİĞİ -->
-        <div id="yazi2" class="article">
-            <h2>Geceleri Aklıma Gelen Garip Fikirler</h2>
-            <p>Bazen uyumadan hemen önce dünyanın en mantıklı fikirleri aklıma geliyor ama sabah uyanınca hepsini unutuyorum.</p>
-            <p>İşte bu blogu biraz da bu yüzden açtım. Artık aklıma bir şey geldiğinde hemen telefonu elime alıp buraya yazacağım.</p>
-        </div>
+  <div id="article-view">
+    <button class="back-link" onclick="goHome()">← tüm yazılar</button>
 
-    </div>
+    <article id="yazi1" class="article">
+      <p class="article-eyebrow">günlük — no. 003</p>
+      <h2>Neden Burada Yazıyorum</h2>
+      <p>Selam, burası artık benim küçük köşem. Kimseye bir şey ispatlama ya da beğendirme derdim yok, sadece aklımdan geçenleri bir yere bırakmak istedim.</p>
+      <p>Tasarımı bilerek sade tuttum, dikkat dağıtacak hiçbir şey olmasın istedim. Geri kalanı zaten yazıların kendisi.</p>
+    </article>
+
+    <article id="yazi2" class="article">
+      <p class="article-eyebrow">günlük — no. 002</p>
+      <h2>Gece Yarısı Notları</h2>
+      <p>Bazen uyumadan hemen önce dünyanın en mantıklı fikirleri aklıma geliyor, sabah uyanınca da hepsi buhar oluyor.</p>
+      <p>Bu köşeyi biraz da bu yüzden açtım. Artık aklıma bir şey takıldığında direkt telefonu alıp buraya yazacağım, unutmadan.</p>
+    </article>
+
+    <article id="yazi3" class="article">
+      <p class="article-eyebrow">günlük — no. 001</p>
+      <h2>Basit Tutmak</h2>
+      <p>Yeni bir şey kurarken çoğu zaman en çok vakti gereksiz detaylara harcıyorum. Bu sefer tam tersini denemek istedim.</p>
+      <p>Tek dosya, tek amaç: yazmak. Gerisi zaten kendiliğinden şekilleniyor.</p>
+    </article>
+  </div>
 
 </div>
 
-<!-- Sitenin Çalışmasını Sağlayan Kodlar (JavaScript) -->
 <script>
-    function openArticle(articleId) {
-        document.getElementById('home-view').style.display = 'none';
-        
-        let allArticles = document.querySelectorAll('.article');
-        allArticles.forEach(function(art) {
-            art.style.display = 'none';
-        });
-        
-        document.getElementById(articleId).style.display = 'block';
-        document.getElementById('article-view').style.display = 'block';
-        
-        window.scrollTo(0, 0);
-    }
+  function openArticle(id) {
+    document.getElementById('home-view').style.display = 'none';
+    document.querySelectorAll('.article').forEach(function (el) {
+      el.style.display = 'none';
+      el.classList.remove('is-visible');
+    });
 
-    function goHome() {
-        document.getElementById('article-view').style.display = 'none';
-        document.getElementById('home-view').style.display = 'block';
+    var target = document.getElementById(id);
+    target.style.display = 'block';
+    document.getElementById('article-view').style.display = 'block';
+
+    requestAnimationFrame(function () {
+      target.classList.add('is-visible');
+    });
+
+    window.scrollTo(0, 0);
+  }
+
+  function goHome() {
+    document.getElementById('article-view').style.display = 'none';
+    document.getElementById('home-view').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function handleKey(e, id) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openArticle(id);
     }
+  }
 </script>
 
 </body>
