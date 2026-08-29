@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Blog</title>
+    <style>
+        /* Sitenin Genel Tasarımı (CSS) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117; /* Şık koyu arka plan */
+            color: #c9d1d9; /* Göz yormayan açık gri metin */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #30363d;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        /* Ana Sayfa Yazı Listesi Tasarımı */
+        .post-card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .post-card:active {
+            border-color: #58a6ff; /* Tıklayınca mavi parlar */
+        }
+        .post-card-title {
+            color: #58a6ff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .post-card-date {
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+        /* Yazı Okuma Ekranı Tasarımı */
+        #article-view {
+            display: none; /* Başlangıçta gizli */
+        }
+        .back-btn {
+            background-color: transparent;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .article {
+            display: none; /* Seçilmeyen yazılar gizli kalır */
+        }
+        .article h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        .article p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <h1>Benim Notlarım</h1>
+        <div class="subtitle">Aklıma gelen düşünceler ve yazılar...</div>
+    </header>
+
+    <div id="home-view">
+        
+        <div class="post-card" onclick="openArticle('yazi1')">
+            <div class="post-card-title">İlk Blog Yazım: Neden Buradayım?</div>
+            <div class="post-card-date">Bugün</div>
+        </div>
+
+        <div class="post-card" onclick="openArticle('yazi2')">
+            <div class="post-card-title">Geceleri Aklıma Gelen Garip Fikirler</div>
+            <div class="post-card-date">Dün</div>
+        </div>
+
+    </div>
+
+    <div id="article-view">
+        <button class="back-btn" onclick="goHome()">← Listeye Dön</button>
+        
+        <div id="yazi1" class="article">
+            <h2>İlk Blog Yazım: Neden Buradayım?</h2>
+            <p>Selam! Burası benim kişisel alanım. Aklıma gelenleri, hayata dair düşüncelerimi burada çok sade bir şekilde paylaşacağım.</p>
+            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da bilerek sade tuttum ki sadece yazılara odaklanılsın.</p>
+        </div>
+
+        <div id="yazi2" class="article">
+            <h2>Geceleri Aklıma Gelen Garip Fikirler</h2>
+            <p>Bazen uyumadan hemen önce dünyanın en mantıklı fikirleri aklıma geliyor ama sabah uyanınca hepsini unutuyorum.</p>
+            <p>İşte bu blogu biraz da bu yüzden açtım. Artık aklıma bir şey geldiğinde hemen telefonu elime alıp buraya yazacağım.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function openArticle(articleId) {
+        // Ana sayfayı gizle
+        document.getElementById('home-view').style.display = 'none';
+        
+        // Tüm yazıları gizle
+        let allArticles = document.querySelectorAll('.article');
+        allArticles.forEach(function(art) {
+            art.style.display = 'none';
+        });
+        
+        // Sadece tıklanan yazıyı göster
+        document.getElementById(articleId).style.display = 'block';
+        
+        // Okuma ekranını aç
+        document.getElementById('article-view').style.display = 'block';
+        
+        // Sayfanın en üstüne kaydır
+        window.scrollTo(0, 0);
+    }
+
+    function goHome() {
+        // Okuma ekranını gizle, ana sayfayı aç
+        document.getElementById('article-view').style.display = 'none';
+        document.getElementById('home-view').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
