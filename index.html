@@ -5,94 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kişisel Blog</title>
     <style>
-        /* Sitenin Genel Tasarımı (CSS) - New York Times Klasik Görünümü */
+        /* Sitenin Genel Tasarımı (CSS) - Modern, Keskin ve Hissedilebilir Tasarım */
         body {
-            /* Tırnaklı (Serif) klasik gazete fontları */
-            font-family: Georgia, "Times New Roman", Times, serif;
-            background-color: #ffffff; /* Beyaz arka plan */
-            color: #000000; /* Siyah metin */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f9f9f9; /* Çok hafif gri, beyaz kartlar öne çıksın diye */
+            color: #111111;
             margin: 0;
-            padding: 20px;
+            padding: 30px 20px;
             line-height: 1.6;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
         }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #000000; /* Kalın siyah alt çizgi */
-        }
-        h1 {
-            color: #000000;
-            font-size: 36px;
-            margin-bottom: 5px;
-            font-weight: normal; /* Klasik başlıklar genelde çok kalın olmaz */
-        }
-        .subtitle {
-            color: #555555;
-            font-size: 16px;
-            font-style: italic; /* Gazete alt başlığı havası için italik */
-        }
         
         /* Ana Sayfa Yazı Listesi Tasarımı */
         .post-card {
             background-color: #ffffff;
-            border: 1px solid #000000; /* Siyah net çerçeve */
-            padding: 20px;
-            border-radius: 2px; /* Çok hafif sivriltilmiş (pointy) köşeler */
-            margin-bottom: 15px;
+            border: 2px solid #000000; /* Kalın ve modern çerçeve */
+            padding: 25px;
+            border-radius: 0px; /* Tamamen keskin (pointy) köşeler */
+            margin-bottom: 25px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            /* Modern 3 Boyutlu Tıklama Hissi */
+            box-shadow: 6px 6px 0px #000000;
+            transition: all 0.1s ease-out; /* Hızlı ve net animasyon */
         }
+        /* Tıklama Anı (Ekrana dokunulduğunda kutu aşağı çöker) */
         .post-card:active {
-            background-color: #f0f0f0; /* Tıklayınca anlık koyulaşma efekti */
+            box-shadow: 0px 0px 0px #000000;
+            transform: translate(6px, 6px);
         }
+        
         .post-card-title {
             color: #000000;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-size: 22px;
+            font-weight: 800; /* Kalın ve dikkat çekici başlık */
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
         .post-card-date {
-            font-size: 14px;
-            color: #555555;
+            font-size: 13px;
+            color: #666666;
+            font-weight: 600;
+            text-transform: uppercase; /* Modern görünüm için büyük harf tarih */
+            letter-spacing: 1px;
         }
 
         /* Yazı Okuma Ekranı Tasarımı */
         #article-view {
-            display: none; /* Başlangıçta gizli */
+            display: none;
         }
         .back-btn {
             background-color: #ffffff;
             color: #000000;
-            border: 1px solid #000000;
-            padding: 8px 16px;
-            border-radius: 2px; /* Sivriltilmiş köşeli buton */
+            border: 2px solid #000000;
+            padding: 10px 20px;
+            border-radius: 0px; /* Keskin köşeler */
             cursor: pointer;
-            font-size: 15px;
-            margin-bottom: 20px;
-            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            box-shadow: 4px 4px 0px #000000;
+            transition: all 0.1s ease-out;
+            font-family: inherit;
         }
         .back-btn:active {
-            background-color: #000000;
-            color: #ffffff;
+            box-shadow: 0px 0px 0px #000000;
+            transform: translate(4px, 4px);
         }
+        
         .article {
-            display: none; /* Seçilmeyen yazılar gizli kalır */
+            display: none;
         }
         .article h2 {
             color: #000000;
-            font-size: 30px;
-            margin-bottom: 15px;
-            font-weight: normal;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
         }
         .article p {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #111111;
+            font-size: 17px;
+            margin-bottom: 20px;
+            color: #222222;
         }
     </style>
 </head>
@@ -100,12 +96,6 @@
 
 <div class="container">
     
-    <!-- Üst Başlık Kısmı (İsmini Buradan Değiştirebilirsin) -->
-    <header>
-        <h1>Benim Notlarım</h1>
-        <div class="subtitle">Aklıma gelen düşünceler ve yazılar...</div>
-    </header>
-
     <!-- ANA SAYFA: YAZI LİSTESİ -->
     <div id="home-view">
         
@@ -125,13 +115,13 @@
 
     <!-- YAZI OKUMA EKRANI -->
     <div id="article-view">
-        <button class="back-btn" onclick="goHome()">← Listeye Dön</button>
+        <button class="back-btn" onclick="goHome()">← LİSTEYE DÖN</button>
         
         <!-- 1. YAZININ İÇERİĞİ -->
         <div id="yazi1" class="article">
             <h2>İlk Blog Yazım: Neden Buradayım?</h2>
             <p>Selam! Burası benim kişisel alanım. Aklıma gelenleri, hayata dair düşüncelerimi burada çok sade bir şekilde paylaşacağım.</p>
-            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da bilerek sade ve gazete gibi tuttum ki sadece yazılara odaklanılsın.</p>
+            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da modern ve sade tuttum ki sadece yazılara odaklanılsın.</p>
         </div>
 
         <!-- 2. YAZININ İÇERİĞİ -->
@@ -148,27 +138,20 @@
 <!-- Sitenin Çalışmasını Sağlayan Kodlar (JavaScript) -->
 <script>
     function openArticle(articleId) {
-        // Ana sayfayı gizle
         document.getElementById('home-view').style.display = 'none';
         
-        // Tüm yazıları gizle
         let allArticles = document.querySelectorAll('.article');
         allArticles.forEach(function(art) {
             art.style.display = 'none';
         });
         
-        // Sadece tıklanan yazıyı göster
         document.getElementById(articleId).style.display = 'block';
-        
-        // Okuma ekranını aç
         document.getElementById('article-view').style.display = 'block';
         
-        // Sayfanın en üstüne kaydır
         window.scrollTo(0, 0);
     }
 
     function goHome() {
-        // Okuma ekranını gizle, ana sayfayı aç
         document.getElementById('article-view').style.display = 'none';
         document.getElementById('home-view').style.display = 'block';
     }
