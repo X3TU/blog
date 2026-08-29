@@ -188,7 +188,6 @@
     margin: 0 0 28px;
   }
 
-  /* Alt Başlıklar için CSS Ayarı */
   .article h3 {
     font-family: var(--sans);
     font-size: 20px;
@@ -231,11 +230,21 @@
 
     <ol class="post-list">
       
+      <!-- YAZI 2: YARATICILIK VE NÖROÇEŞİTLİLİK (YENİ EKLENEN) -->
+      <li class="post-item" tabindex="0" role="button" aria-label="Algının Kapıları yazısını aç" onclick="openArticle('yazi2')" onkeydown="handleKey(event, 'yazi2')">
+        <div class="post-meta">
+          <span class="post-index">002</span>
+          <span class="post-date">29 AĞU 2026</span>
+        </div>
+        <h2 class="post-title">Algının Kapıları: Yaratıcılık, Zihnin Filtreleri ve Nöroçeşitlilik Üzerine</h2>
+        <p class="post-excerpt">Zaman zaman iyi resim çizen, o ince detayları ve kusursuz uyumu kâğıda zahmetsizce aktarabilen insanları gözlemlerim...</p>
+      </li>
+
       <!-- YAZI 1: YAPAY ZEKA VE BİLİŞSEL TEMBELLİK -->
       <li class="post-item" tabindex="0" role="button" aria-label="Yapay Zeka ve Bilişsel Tembellik yazısını aç" onclick="openArticle('yazi1')" onkeydown="handleKey(event, 'yazi1')">
         <div class="post-meta">
           <span class="post-index">001</span>
-          <span class="post-date">29 Ağustos 2026</span>
+          <span class="post-date">29 AĞU 2026</span>
         </div>
         <h2 class="post-title">Bilgiye Erişim Paradigmasında Yapay Zeka: Bilişsel Tembellik İddialarına Karşı Evrimsel ve Sosyo-Entelektüel Bir Yaklaşım</h2>
         <p class="post-excerpt">Çocukluk yılları, insan zihninin en parlak, en filtresiz ve en sorgulayıcı olduğu dönemdir. Dünyayı anlamlandırma çabasıyla...</p>
@@ -247,9 +256,39 @@
   <div id="article-view">
     <button class="back-link" onclick="goHome()">← tüm yazılar</button>
 
+    <!-- YAZI 2 İÇERİĞİ (YENİ EKLENEN) -->
+    <article id="yazi2" class="article">
+      <p class="article-eyebrow">makale — no. 002</p>
+      <h2>Algının Kapıları: Yaratıcılık, Zihnin Filtreleri ve Nöroçeşitlilik Üzerine</h2>
+      
+      <p>Zaman zaman iyi resim çizen, o ince detayları ve kusursuz uyumu kâğıda zahmetsizce aktarabilen insanları gözlemlerim. Kendimde asla göremediğim, onların bu becerisinin ardında sadece iyi bir eğitim veya teknik bir el yatkınlığı olmadığını; dünyayı algılama, filtreleme ve yorumlama biçimlerinde yapısal bir farklılık olduğunu düşünmüşümdür. Kusursuz bir görsel algı ile zihinsel farklılıklar –örneğin şizofreniye yatkınlık– arasında bir bağ olabilir mi diye düşündüm ve ufak çaplı bir araştırma yaptım.</p>
+      
+      <p>Bilim, bu gözlemi fazlasıyla doğruluyor. İnsan beyni, normal şartlarda günlük hayatta odaklanabilmek ve kelimenin tam anlamıyla "delirmemek" için etrafımızdaki sayısız uyarıcıyı gereksiz detay olarak etiketleyip filtreler. Psikolojide buna <strong>"gizli inhibisyon" (latent inhibition)</strong> adı verilir. Ancak yaratıcılığı yüksek zihinlerde ve şizofreni spektrumuna genetik yatkınlığı olan bireylerde bu filtre çok daha geçirgendir. Onlar dünyayı bizim standart gördüğümüzden çok daha yüksek çözünürlüklü, yoğun ve filtresiz algılarlar. Bu durum, yetenekli bir ressamın dünyayı farklı renkler ve formlarla tuvale yansıtmasını sağlarken, aynı genetik altyapı yatkınlığı olan hastalarda aşırı uyarıma yol açabilir. Yani delilik ile dâhilik, tam da beynin bu bilgi filtreleme mekanizmasında kesişiyor.</p>
+
+      <h3>Yaratıcılığın Sınırları ve İki Farklı Zihin Tipi</h3>
+      
+      <p>Toplum olarak yaratıcılığı yalnızca sanatsal beceriyle (iyi resim çizmek, iyi müzik yapmak) sınırlamak gibi büyük bir yanılgıya düşüyoruz. Oysa nörobilim, yaratıcılığı iki temel kavrama ayırarak inceler. Bir yanda dağınık fikirleri toplayıp ince ince işleyerek tek bir mükemmel sonuca ulaştıran <strong>yakınsak düşünme (convergent thinking)</strong> vardır; başarılı bir illüstratörün sabırlı işçiliği buraya girer.</p>
+      
+      <p>Diğer yanda ise tek bir noktadan yola çıkıp birbiriyle alakasız görünen onlarca fikir, olasılık ve bağlantı üretebilme yeteneği olan <strong>ıraksak düşünme (divergent thinking)</strong> yer alır. Nöroçeşitli (neurodivergent) zihinler ve dikkat eksikliği (ADHD) profiline sahip bireyler, standart bir doğrusal mantıkla çalışmadığı için "kutunun dışında düşünmek" konusunda inanılmaz parlarlar. Sistemlerdeki açıkları görmek, kimsenin kuramadığı o tuhaf mantık bağlarını kurmak ve kavramsal çözümler üretmek bu tür zihinlerin yaratıcılığıdır. Onların tuvali kâğıt değil, fikirler ve kavramlardır.</p>
+
+      <h3>Filtreler Kalktığında Ne Olur? (Psikedelik Bir Perspektif)</h3>
+      
+      <p>Beynin bu filtreleme sisteminin tamamen devreden çıktığı durumları anlamak için LSD gibi klasik psikedelik maddelerin nörobilimsel etkilerine bakmak, bana kalırsa zihnin potansiyelini anlamak adına eşsiz bir vizyon sunuyor.</p>
+      
+      <p>Bu tür psikedelik deneyimlerin aktarımlarına ve klinik araştırmalara baktığımızda, beynin "varsayılan ağının" (Default Mode Network) geçici olarak sustuğunu görürüz. O an geldiğinde zihindekı tüm o korumacı filtreler kalkar; her şey çok daha renkli, detaylar muazzam ve nesneler arası uyum adeta büyüleyici bir hale bürünür. Zihin, o kısacık ama inanılmaz yoğun süreçte dünyayı tam olarak görsel algısı doğuştan farklı olan yetenekli bir sanatçının (veya şizotipal bir zihnin) filtresizliğiyle deneyimler. Renklerin birbiriyle konuşması, dokuların derinliği ve o yüksek çözünürlüklü algı durumu, insan bilincinin sınırlarının ne kadar genişletilebileceğini gösteren muazzam bir kanıttır.</p>
+
+      <h3>Fırsat Penceresi: Nöroplastisite</h3>
+      
+      <p>Peki, filtrenin kalktığı o yüksek farkındalık anları veya doğuştan gelen bu "farklı algı" kalıcı bir yetenek bırakır mı? El becerisi veya anatomik çizim yapmak bir kas hafızasıdır; kimse bir anda eline fırça alıp harikalar yaratamaz. Ancak asıl kalıcı olan şey <strong>görsel algı ve farkındalıktır</strong>.</p>
+      
+      <p>Psikedelik deneyimlerin veya yoğun algısal değişimlerin ardından beyin, "nöroplastisite" (esneklik) adı verilen, zihnin yeni yollar açmaya en yatkın olduğu biyolojik bir pencereye girer. Bu süreçte beyin, yeni bir bakış açısını içselleştirmeye kat kat daha yatkındır.</p>
+      
+      <p>Hayatınız boyunca bir çöp adam bile çizememiş, klasik anlamda "resim yeteneğinden" tamamen yoksun olabilirsiniz. Ancak filtresiz bir zihnin dünyayı nasıl gördüğüne, o görsel zenginliğe kafa yorduğunuzda ve algısal sınırlarınızı esnettiğinizde; fotoğrafçılığa, tasarıma, analitik düşünceye veya sadece bir sanat eserine bakışınız kalıcı olarak değişebilir. Önemli olan el becerisinin kısıtlamalarına takılmak değil, zihnin o yüksek çözünürlüklü, filtresiz potansiyelini kavramak ve fikirsel yaratıcılığın kapılarını aralamaktır.</p>
+    </article>
+
     <!-- YAZI 1 İÇERİĞİ -->
     <article id="yazi1" class="article">
-      <p class="article-eyebrow">no. 001</p>
+      <p class="article-eyebrow">makale — no. 001</p>
       <h2>Bilgiye Erişim Paradigmasında Yapay Zeka: Bilişsel Tembellik İddialarına Karşı Evrimsel ve Sosyo-Entelektüel Bir Yaklaşım</h2>
       
       <p>Çocukluk yılları, insan zihninin en parlak, en filtresiz ve en sorgulayıcı olduğu dönemdir. Dünyayı anlamlandırma çabasıyla dolup taştığımız o yaşlarda, aklımıza takılan her detayı hiç çekinmeden sorarız. Doğal olarak bu soruların ilk muhatabı ebeveynlerimiz, yaşımız ilerledikçe de öğretmenlerimiz olur. Ancak birçoğumuzun çok iyi bildiği o heves kırıcı an er geç gelir: Etrafımızdaki yetişkinlerin bilgi dağarcığının yetersizliği, yanlış bildikleri şeyleri mutlak doğruymuş gibi aktarmaları veya soruları baştan savmaları... İşte bu durum, içimizdeki o devasa bilgi açlığını yavaş yavaş negatif etkilemeye başlar. Büyüdükçe acı bir gerçeği fark ederiz; otorite olarak gördüğümüz bu figürlerin aslında pek de bir şey bildiği yoktur.</p>
