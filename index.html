@@ -188,6 +188,15 @@
     margin: 0 0 28px;
   }
 
+  /* Alt Başlıklar için CSS Ayarı */
+  .article h3 {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 32px 0 16px 0;
+  }
+
   .article p {
     font-size: 17px;
     line-height: 1.75;
@@ -215,64 +224,69 @@
 
   <div id="home-view">
     <header class="site-header">
-      <p class="eyebrow">kişisel günlük</p>
+      <p class="eyebrow">kişisel blog</p>
       <h1 class="site-title">Notlar.</h1>
       <p class="site-tagline">aklımdan geçenler, ara sıra buraya düşer.</p>
     </header>
 
     <ol class="post-list">
-      <li class="post-item" tabindex="0" role="button" aria-label="Neden Burada Yazıyorum yazısını aç" onclick="openArticle('yazi1')" onkeydown="handleKey(event, 'yazi1')">
-        <div class="post-meta">
-          <span class="post-index">003</span>
-          <span class="post-date">Bugün</span>
-        </div>
-        <h2 class="post-title">Neden Burada Yazıyorum</h2>
-        <p class="post-excerpt">Kimseye bir şey ispatlama derdim yok. Sadece aklımda kalanları bir yere bırakmak istedim.</p>
-      </li>
-
-      <li class="post-item" tabindex="0" role="button" aria-label="Gece Yarısı Notları yazısını aç" onclick="openArticle('yazi2')" onkeydown="handleKey(event, 'yazi2')">
-        <div class="post-meta">
-          <span class="post-index">002</span>
-          <span class="post-date">3 gün önce</span>
-        </div>
-        <h2 class="post-title">Gece Yarısı Notları</h2>
-        <p class="post-excerpt">En mantıklı fikirler hep uyumadan hemen önce geliyor, sabah olunca da hepsi kayboluyor.</p>
-      </li>
-
-      <li class="post-item" tabindex="0" role="button" aria-label="Basit Tutmak yazısını aç" onclick="openArticle('yazi3')" onkeydown="handleKey(event, 'yazi3')">
+      
+      <!-- YAZI 1: YAPAY ZEKA VE BİLİŞSEL TEMBELLİK -->
+      <li class="post-item" tabindex="0" role="button" aria-label="Yapay Zeka ve Bilişsel Tembellik yazısını aç" onclick="openArticle('yazi1')" onkeydown="handleKey(event, 'yazi1')">
         <div class="post-meta">
           <span class="post-index">001</span>
-          <span class="post-date">1 hafta önce</span>
+          <span class="post-date">Bugün</span>
         </div>
-        <h2 class="post-title">Basit Tutmak</h2>
-        <p class="post-excerpt">Bu siteyi de tam olarak bu yüzden böyle tasarladım: az öğe, çok boşluk, sade bir okuma deneyimi.</p>
+        <h2 class="post-title">Bilgiye Erişim Paradigmasında Yapay Zeka: Bilişsel Tembellik İddialarına Karşı Evrimsel ve Sosyo-Entelektüel Bir Yaklaşım</h2>
+        <p class="post-excerpt">Çocukluk yılları, insan zihninin en parlak, en filtresiz ve en sorgulayıcı olduğu dönemdir. Dünyayı anlamlandırma çabasıyla...</p>
       </li>
+
     </ol>
   </div>
 
   <div id="article-view">
     <button class="back-link" onclick="goHome()">← tüm yazılar</button>
 
+    <!-- YAZI 1 İÇERİĞİ -->
     <article id="yazi1" class="article">
-      <p class="article-eyebrow">günlük — no. 003</p>
-      <h2>Neden Burada Yazıyorum</h2>
-      <p>Selam, burası artık benim küçük köşem. Kimseye bir şey ispatlama ya da beğendirme derdim yok, sadece aklımdan geçenleri bir yere bırakmak istedim.</p>
-      <p>Tasarımı bilerek sade tuttum, dikkat dağıtacak hiçbir şey olmasın istedim. Geri kalanı zaten yazıların kendisi.</p>
+      <p class="article-eyebrow">makale — no. 001</p>
+      <h2>Bilgiye Erişim Paradigmasında Yapay Zeka: Bilişsel Tembellik İddialarına Karşı Evrimsel ve Sosyo-Entelektüel Bir Yaklaşım</h2>
+      
+      <p>Çocukluk yılları, insan zihninin en parlak, en filtresiz ve en sorgulayıcı olduğu dönemdir. Dünyayı anlamlandırma çabasıyla dolup taştığımız o yaşlarda, aklımıza takılan her detayı hiç çekinmeden sorarız. Doğal olarak bu soruların ilk muhatabı ebeveynlerimiz, yaşımız ilerledikçe de öğretmenlerimiz olur. Ancak birçoğumuzun çok iyi bildiği o heves kırıcı an er geç gelir: Etrafımızdaki yetişkinlerin bilgi dağarcığının yetersizliği, yanlış bildikleri şeyleri mutlak doğruymuş gibi aktarmaları veya soruları baştan savmaları... İşte bu durum, içimizdeki o devasa bilgi açlığını yavaş yavaş negatif etkilemeye başlar. Büyüdükçe acı bir gerçeği fark ederiz; otorite olarak gördüğümüz bu figürlerin aslında pek de bir şey bildiği yoktur.</p>
+      
+      <p>Bu aydınlanma genellikle "artık kendi araştırmamı kendim yapmalıyım" fikrini doğurur. Fakat tam da bu noktada devreye hayatın çok daha farklı dinamikleri, yani ergenlik girer.</p>
+
+      <h3>Bilgi "Hamallığı" ve Ergenliğin Gerçekleri</h3>
+      
+      <p>Yapay zeka ve gelişmiş arama motorları öncesi dönemde araştırma yapmak, ciddi bir zaman ve efor maliyeti demekti. Saatlerce kütüphanelerde dirsek çürütmek, ansiklopedi sayfaları arasında kaybolmak veya internetin o ilk, dağınık versiyonlarında güvenilir bilgi aramaya çalışmak tam anlamıyla bir "bilgi hamallığıydı".</p>
+      
+      <p>Kabul edelim ki; bir genç, ergenliğinin zirvesindeyken eğer tamamen içine kapanık, asosyal veya toplumdan dışlanmış biri değilse, bilgiye ulaşmak için böylesine yorucu bir efora katlanmıyordu. Karşı cinsin ilgisi, sosyalleşme ihtiyacı ve dışarıdaki sayısız eğlence kaynağı, beynimizi araştırma yapmaya yönelik efor sarf etmekten doğal olarak alıkoyuyordu. Hayatın o hızlı akışı içinde, merak duygumuz pratik engellere takılıp köreliyordu.</p>
+
+      <h3>Yapay Zeka Çağı: "Keşke"lerimiz ve Yeni Nesil Şans</h3>
+      
+      <p>Bugün ise kurallar tamamen yeniden yazılıyor. Yapay zeka hayatımızın tam merkezinde ve aklımıza gelen, bizi meraklandıran her şeyi anında, derinlemesine ve en anlaşılır haliyle öğrenebiliyoruz. İnsan bu noktada kendi geçmişine bakıp düşünmeden edemiyor: "Çocukken o bitmek bilmeyen merakıma anında, kusursuz cevaplar verecek bir yapay zeka elimde olsaydı, bugün entelektüel olarak nerede olurdum?" Belki de yaşın getirdiği olgunlukla o çocukluktaki devasa yaratıcılığa sahip değiliz, ancak günümüz çocuklarının elindeki bu gücü gördükçe geleceğe dair inanılmaz bir potansiyelin filizlendiğini inkar edemeyiz.</p>
+
+      <h3>Beynimiz Küçülüyor mu, Yoksa Evrim mi Geçiriyoruz?</h3>
+      
+      <p>Günümüzde ana akım medyada ve bazı akademik çevrelerde sıkça pompalanan bir endişe var: Yapay zeka kullanımının beyni küçülttüğü, araştırma zekasını düşürdüğü ve zihnimizi tembelleştirdiği söyleniyor. Özellikle beynin bazı bölgelerinin artık eskisi kadar yorulmamasını direkt "kötü bir şey" olarak lanse eden araştırmalarla karşılaşıyoruz. Fakat bu iddiaların ve korelasyonların doğruluğu büyük bir tartışma konusu.</p>
+      
+      <p>İnsanoğlunun evrimsel sürecine dönüp baktığımızda, hayatta kalmak veya gelişmek için artık ihtiyaç duymadığımız özelliklerin yavaş yavaş sönümlendiğini ve yerine çağın gerekliliklerine uygun yeni adaptasyonların geldiğini görürüz. Çağımız bizden saatlerce ham bilgi arama zahmetini alıyor olabilir. Ancak yavaş yavaş fark ediyoruz ki; asıl doğru olan şey beynimizin tembelleşmesi değil, gereksiz bilişsel yüklerden kurtulmasıdır. Bilgiyi bulmak için harcanan o "amelelik" dönemi bitiyor ve beyin, kapasitesini çok daha üst düzey işlevlere ayırmak için evrimleşiyor.</p>
+
+      <h3>Sosyal Hayat ve Entelektüel Derinliğin Buluşması</h3>
+      
+      <p>Eskiden derinlemesine araştırma yapan, bilgiyle yoğun şekilde ilgilenen gençler genellikle hayatın diğer alanlarından feragat etmek zorundaydı. Bilgiye ulaşmak çok vakit aldığından, bu yola giren bireyler genellikle asosyal, toplumdan izole olmuş profiller çiziyordu. Entel olmak ile sosyal olmak arasında keskin bir çizgi vardı.</p>
+      
+      <p>Bugün yapay zeka bu ayrımı ortadan kaldırıyor. Gelişme çağındaki bir birey; hem arkadaşlarıyla vakit geçirip tamamen normal, sağlıklı bir sosyal hayat sürebiliyor hem de aklına takılan karmaşık bir felsefi, bilimsel veya tarihi konuyu saniyeler içinde öğrenerek sağlam bir entelektüel zemin inşa edebiliyor. Geçmişte imkansızlıklar ve zamansızlık yüzünden körelen araştırma içgüdüsü, günümüzde yapay zeka sayesinde çok daha donanımlı, çok yönlü ve vizyoner bir neslin yetişmesine olanak tanıyor.</p>
+
+      <h3>Asıl Mesele: Bilgiyi Bulmak Değil, Sorgulamak</h3>
+      
+      <p>Tüm bu teknolojik devrimin bizi getirdiği en önemli nokta şu: Bilgiye ulaşmanın sürtünmesiz, anlık ve zahmetsiz hale gelmesi, bizi çok daha kritik bir zihinsel faaliyete itiyor. Sorgulamak.</p>
+      
+      <p>Yapay zeka sistemleri zamanla çok daha fazla gelişecek ve verdikleri bilgilerin doğruluğu (accuracy) mükemmele yaklaşacak. Düşünsenize, bugün doğan bir çocuk aklına gelen her soruyu yapay zekaya sorup harika cevaplar elde edebiliyor. Bu durumun onun zihnini körelttiğini düşünmek, büyük resmi kaçırmaktır. Tam tersine, bu durum onu çağa ayak uyduran, bilgiyi sadece depolayan değil; o bilgiyi işleyen, sentezleyen ve yeni fikirler üreten yeni nesil bir zekaya dönüştürüyor.</p>
+      
+      <p>Gelecekte eğitimin, zekanın ve kişisel gelişimin odak noktası, samanlıkta iğne aramak olmayacak; yapay zekanın önüne getirdiği o iğnenin paslı mı, altından mı yoksa çelikten mi olduğunu analiz etmek olacak. Yani teknoloji bizi tembelleştirmiyor; sadece kanatlarımızdaki gereksiz ağırlıklardan kurtulup, asıl yapmamız gereken işe, yani "eleştirel düşünmeye" odaklanmamızı sağlıyor.</p>
     </article>
 
-    <article id="yazi2" class="article">
-      <p class="article-eyebrow">günlük — no. 002</p>
-      <h2>Gece Yarısı Notları</h2>
-      <p>Bazen uyumadan hemen önce dünyanın en mantıklı fikirleri aklıma geliyor, sabah uyanınca da hepsi buhar oluyor.</p>
-      <p>Bu köşeyi biraz da bu yüzden açtım. Artık aklıma bir şey takıldığında direkt telefonu alıp buraya yazacağım, unutmadan.</p>
-    </article>
-
-    <article id="yazi3" class="article">
-      <p class="article-eyebrow">günlük — no. 001</p>
-      <h2>Basit Tutmak</h2>
-      <p>Yeni bir şey kurarken çoğu zaman en çok vakti gereksiz detaylara harcıyorum. Bu sefer tam tersini denemek istedim.</p>
-      <p>Tek dosya, tek amaç: yazmak. Gerisi zaten kendiliğinden şekilleniyor.</p>
-    </article>
   </div>
 
 </div>
