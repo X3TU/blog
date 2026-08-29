@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kişisel Blog</title>
     <style>
-        /* Sitenin Genel Tasarımı (CSS) */
+        /* Sitenin Genel Tasarımı (CSS) - New York Times Klasik Görünümü */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117; /* Şık koyu arka plan */
-            color: #c9d1d9; /* Göz yormayan açık gri metin */
+            /* Tırnaklı (Serif) klasik gazete fontları */
+            font-family: Georgia, "Times New Roman", Times, serif;
+            background-color: #ffffff; /* Beyaz arka plan */
+            color: #000000; /* Siyah metin */
             margin: 0;
             padding: 20px;
             line-height: 1.6;
@@ -22,40 +23,42 @@
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 2px solid #000000; /* Kalın siyah alt çizgi */
         }
         h1 {
-            color: #ffffff;
-            font-size: 24px;
+            color: #000000;
+            font-size: 36px;
             margin-bottom: 5px;
+            font-weight: normal; /* Klasik başlıklar genelde çok kalın olmaz */
         }
         .subtitle {
-            color: #8b949e;
-            font-size: 14px;
+            color: #555555;
+            font-size: 16px;
+            font-style: italic; /* Gazete alt başlığı havası için italik */
         }
         
         /* Ana Sayfa Yazı Listesi Tasarımı */
         .post-card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
+            background-color: #ffffff;
+            border: 1px solid #000000; /* Siyah net çerçeve */
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 2px; /* Çok hafif sivriltilmiş (pointy) köşeler */
             margin-bottom: 15px;
             cursor: pointer;
-            transition: border-color 0.2s;
+            transition: background-color 0.2s;
         }
         .post-card:active {
-            border-color: #58a6ff; /* Tıklayınca mavi parlar */
+            background-color: #f0f0f0; /* Tıklayınca anlık koyulaşma efekti */
         }
         .post-card-title {
-            color: #58a6ff;
-            font-size: 18px;
+            color: #000000;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 8px;
         }
         .post-card-date {
-            font-size: 12px;
-            color: #8b949e;
+            font-size: 14px;
+            color: #555555;
         }
 
         /* Yazı Okuma Ekranı Tasarımı */
@@ -63,26 +66,33 @@
             display: none; /* Başlangıçta gizli */
         }
         .back-btn {
-            background-color: transparent;
-            color: #58a6ff;
-            border: 1px solid #30363d;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 2px; /* Sivriltilmiş köşeli buton */
             cursor: pointer;
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 20px;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        .back-btn:active {
+            background-color: #000000;
+            color: #ffffff;
         }
         .article {
             display: none; /* Seçilmeyen yazılar gizli kalır */
         }
         .article h2 {
-            color: #ffffff;
-            font-size: 26px;
+            color: #000000;
+            font-size: 30px;
             margin-bottom: 15px;
+            font-weight: normal;
         }
         .article p {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 15px;
+            color: #111111;
         }
     </style>
 </head>
@@ -90,18 +100,22 @@
 
 <div class="container">
     
+    <!-- Üst Başlık Kısmı (İsmini Buradan Değiştirebilirsin) -->
     <header>
         <h1>Benim Notlarım</h1>
         <div class="subtitle">Aklıma gelen düşünceler ve yazılar...</div>
     </header>
 
+    <!-- ANA SAYFA: YAZI LİSTESİ -->
     <div id="home-view">
         
+        <!-- 1. YAZI KARTI -->
         <div class="post-card" onclick="openArticle('yazi1')">
             <div class="post-card-title">İlk Blog Yazım: Neden Buradayım?</div>
             <div class="post-card-date">Bugün</div>
         </div>
 
+        <!-- 2. YAZI KARTI -->
         <div class="post-card" onclick="openArticle('yazi2')">
             <div class="post-card-title">Geceleri Aklıma Gelen Garip Fikirler</div>
             <div class="post-card-date">Dün</div>
@@ -109,15 +123,18 @@
 
     </div>
 
+    <!-- YAZI OKUMA EKRANI -->
     <div id="article-view">
         <button class="back-btn" onclick="goHome()">← Listeye Dön</button>
         
+        <!-- 1. YAZININ İÇERİĞİ -->
         <div id="yazi1" class="article">
             <h2>İlk Blog Yazım: Neden Buradayım?</h2>
             <p>Selam! Burası benim kişisel alanım. Aklıma gelenleri, hayata dair düşüncelerimi burada çok sade bir şekilde paylaşacağım.</p>
-            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da bilerek sade tuttum ki sadece yazılara odaklanılsın.</p>
+            <p>Kimseye beğendirme derdim yok, sadece yazmak istedim. Tasarımı da bilerek sade ve gazete gibi tuttum ki sadece yazılara odaklanılsın.</p>
         </div>
 
+        <!-- 2. YAZININ İÇERİĞİ -->
         <div id="yazi2" class="article">
             <h2>Geceleri Aklıma Gelen Garip Fikirler</h2>
             <p>Bazen uyumadan hemen önce dünyanın en mantıklı fikirleri aklıma geliyor ama sabah uyanınca hepsini unutuyorum.</p>
@@ -128,6 +145,7 @@
 
 </div>
 
+<!-- Sitenin Çalışmasını Sağlayan Kodlar (JavaScript) -->
 <script>
     function openArticle(articleId) {
         // Ana sayfayı gizle
